@@ -19667,26 +19667,57 @@ process.umask = function() { return 0; };
 
 },{}],168:[function(require,module,exports){
 var React = require('react');
+var Header = require('./Header.jsx');
 
 var ContentManager = React.createClass({
-    displayName: "ContentManager",
+    displayName: 'ContentManager',
 
     render: function () {
         return React.createElement(
-            "div",
-            { className: "contentManager" },
-            "greetings from main"
+            'div',
+            { className: 'contentManager' },
+            React.createElement(Header, null),
+            React.createElement(
+                'div',
+                { className: 'container' },
+                React.createElement(
+                    'div',
+                    { className: 'row' },
+                    React.createElement(
+                        'div',
+                        { className: 'col-sm-8 col-sm-offset-2' },
+                        'Hello from main'
+                    )
+                )
+            )
         );
     }
 });
 
 module.exports = ContentManager;
 
-},{"react":166}],169:[function(require,module,exports){
+},{"./Header.jsx":169,"react":166}],169:[function(require,module,exports){
+var React = require('react');
+
+var Header = React.createClass({
+    displayName: "Header",
+
+    render: function () {
+        return React.createElement(
+            "div",
+            { className: "" },
+            "header..."
+        );
+    }
+});
+
+module.exports = Header;
+
+},{"react":166}],170:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 var ContentManager = require('./components/ContentManager.jsx');
 
 ReactDOM.render(React.createElement(ContentManager, null), document.getElementById('content'));
 
-},{"./components/ContentManager.jsx":168,"react":166,"react-dom":1}]},{},[169]);
+},{"./components/ContentManager.jsx":168,"react":166,"react-dom":1}]},{},[170]);
